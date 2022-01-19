@@ -176,7 +176,7 @@ variable "source_username" {
   description = "Username to access the source database"
 }
 
-variable "skip_final_snapshot"{
+variable "skip_final_snapshot" {
   description = "If true (false by default), no snapshot will be made before deleting DB"
   default     = false
 }
@@ -234,7 +234,7 @@ variable "dns_ttl" {
 
 variable "ssl_mode" {
   description = " The SSL mode to use for the connection. Can be one of none | require | verify-ca | verify-full"
-  deafault = "none"
+  default     = "none"
 }
 
 variable "aws_db_instance_source_address" {
@@ -248,11 +248,20 @@ variable "aws_db_instance_target_address" {
 
 variable "vpc_security_group_ids" {
   description = "security group ids"
-  default =  ""
+  default     = ""
 }
 
 variable "aws_subnet_database_id" {
   description = "security group ids"
-  default =  ""
+  default     = ""
+}
 
+variable "availability_zones" {
+  description = "the avaialability zones in which to create the resources"
+  type        = list(string)
+}
+
+variable "aws_security_group_rds_ids" {
+  description = "The RDS security group ids"
+  type        = list(string)
 }
